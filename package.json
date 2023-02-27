@@ -1,9 +1,10 @@
 {
-  "name": "words_server",
+  "name": "wise-repeat-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
+  "author": "Serhii Lypko",
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
