@@ -2,9 +2,8 @@
   "name": "wise-repeat-api",
   "version": "0.0.1",
   "description": "",
-  "author": "",
-  "private": true,
   "author": "Serhii Lypko",
+  "private": true,
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
