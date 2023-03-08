@@ -6,7 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
+      # 4000 -> host machine
+      # 8000 -> docker container
+      - 4000:8000
     depends_on:
       - postgres
     env_file:

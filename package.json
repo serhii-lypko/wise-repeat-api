@@ -1,10 +1,9 @@
 {
   "name": "wise-repeat-api",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "API for learning words",
   "author": "Serhii Lypko",
   "private": true,
-  "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

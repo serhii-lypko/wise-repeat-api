@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Patch,
+  Delete,
+  Body,
+  Param,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { WordPair } from '@prisma/client';
 
@@ -8,16 +16,36 @@ export class AppController {
 
   @Get('/ping')
   async ping() {
-    return 'pong';
+    return 'pong patched 0.1';
   }
 
   @Get()
-  async gerWords() {
-    return await this.appService.getWords();
+  async getAll() {
+    return await this.appService.getAll();
   }
 
-  @Post()
-  async createDraft(@Body() data): Promise<WordPair> {
-    return this.appService.createWord(data);
+  @Get('/to-learn')
+  async getToLearn() {
+    return await this.appService.getByStatus(/* isLearned: */ false);
+  }
+
+  @Get('/learned')
+  async getLearned() {
+    return await this.appService.getByStatus(/* isLearned: */ true);
+  }
+
+  @Post('/create')
+  async create(@Body() data): Promise<WordPair> {
+    return this.appService.create(data);
+  }
+
+  @Patch('/toggle-status/:id')
+  async toggleStatus(@Param('id') id: string) {
+    return await this.appService.toggleStatus(id);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: string) {
+    await this.appService.delete(id);
   }
 }
